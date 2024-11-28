@@ -25,7 +25,7 @@ export const IdentityForm: React.FC<IdentityFormProps> = ({
           type="text"
           value={data.taxId || ''}
           onChange={(e) => onChange('taxId', e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
         />
         {errors.taxId && <p className="mt-1 text-sm text-red-600">{errors.taxId}</p>}
       </div>
@@ -35,7 +35,7 @@ export const IdentityForm: React.FC<IdentityFormProps> = ({
         <select
           value={data.documentType || ''}
           onChange={(e) => onChange('documentType', e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
         >
           <option value="">Select document type</option>
           <option value="passport">Passport</option>
@@ -53,7 +53,7 @@ export const IdentityForm: React.FC<IdentityFormProps> = ({
           type="file"
           accept="image/*,.pdf"
           onChange={handleFileChange}
-          className="mt-1 block w-full"
+          className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
         />
         {errors.documentFile && (
           <p className="mt-1 text-sm text-red-600">{errors.documentFile}</p>
@@ -65,7 +65,7 @@ export const IdentityForm: React.FC<IdentityFormProps> = ({
         <select
           value={data.employmentStatus || ''}
           onChange={(e) => onChange('employmentStatus', e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
         >
           <option value="">Select employment status</option>
           <option value="employed">Employed</option>
@@ -86,7 +86,7 @@ export const IdentityForm: React.FC<IdentityFormProps> = ({
               type="text"
               value={data.employer || ''}
               onChange={(e) => onChange('employer', e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             />
             {errors.employer && (
               <p className="mt-1 text-sm text-red-600">{errors.employer}</p>
@@ -99,7 +99,7 @@ export const IdentityForm: React.FC<IdentityFormProps> = ({
               type="text"
               value={data.occupation || ''}
               onChange={(e) => onChange('occupation', e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             />
             {errors.occupation && (
               <p className="mt-1 text-sm text-red-600">{errors.occupation}</p>

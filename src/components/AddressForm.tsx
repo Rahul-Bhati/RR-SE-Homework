@@ -20,7 +20,7 @@ export const AddressForm: React.FC<AddressFormProps> = ({
           type="text"
           value={data.street || ''}
           onChange={(e) => onChange('street', e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
         />
         {errors.street && <p className="mt-1 text-sm text-red-600">{errors.street}</p>}
       </div>
@@ -32,7 +32,7 @@ export const AddressForm: React.FC<AddressFormProps> = ({
             type="text"
             value={data.city || ''}
             onChange={(e) => onChange('city', e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           />
           {errors.city && <p className="mt-1 text-sm text-red-600">{errors.city}</p>}
         </div>
@@ -42,7 +42,7 @@ export const AddressForm: React.FC<AddressFormProps> = ({
             type="text"
             value={data.state || ''}
             onChange={(e) => onChange('state', e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           />
           {errors.state && <p className="mt-1 text-sm text-red-600">{errors.state}</p>}
         </div>
@@ -55,7 +55,7 @@ export const AddressForm: React.FC<AddressFormProps> = ({
             type="text"
             value={data.postalCode || ''}
             onChange={(e) => onChange('postalCode', e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           />
           {errors.postalCode && (
             <p className="mt-1 text-sm text-red-600">{errors.postalCode}</p>
@@ -66,7 +66,7 @@ export const AddressForm: React.FC<AddressFormProps> = ({
           <select
             value={data.country || ''}
             onChange={(e) => onChange('country', e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select a country</option>
             <option value="US">United States</option>

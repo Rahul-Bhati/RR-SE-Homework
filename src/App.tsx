@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { FormProgress } from './components/FormProgress';
-import { PersonalInfoForm } from './components/PersonalInfoForm';
-import { AddressForm } from './components/AddressForm';
-import { IdentityForm } from './components/IdentityForm';
-import { ReviewForm } from './components/ReviewForm';
 import { KYCFormData, FormStep } from './types/kyc';
 import { personalInfoSchema, addressSchema, identitySchema } from './utils/validation';
+import { PersonalInfoFormSkeleton } from './components/PersonalInfoForm';
+
+const PersonalInfoForm = lazy(() => import('./components/PersonalInfoForm').then(module => ({ default: module.PersonalInfoForm })));
+const AddressForm = lazy(() => import('./components/AddressForm').then(module => ({ default: module.AddressForm })));
+const IdentityForm = lazy(() => import('./components/IdentityForm').then(module => ({ default: module.IdentityForm })));
+const ReviewForm = lazy(() => import('./components/ReviewForm').then(module => ({ default: module.ReviewForm })));
 
 function App() {
   const [currentStep, setCurrentStep] = useState<FormStep>('personal');
@@ -21,13 +23,13 @@ function App() {
     try {
       switch (currentStep) {
         case 'personal':
-          await personalInfoSchema.parseAsync(formData);
+          await personalInfoSchema.pick({ [currentStep]: true }).parseAsync(formData);
           break;
         case 'address':
-          await addressSchema.parseAsync(formData);
+          await addressSchema.pick({ [currentStep]: true }).parseAsync(formData);
           break;
         case 'identity':
-          await identitySchema.parseAsync(formData);
+          await identitySchema.pick({ [currentStep]: true }).parseAsync(formData);
           break;
         default:
           return true;
@@ -123,11 +125,13 @@ function App() {
           <h1 className="text-2xl font-bold text-gray-900 mb-6">
             Account Verification (KYC)
           </h1>
-          
+
           <FormProgress currentStep={currentStep} />
-          
-          <div className="mt-8">{renderForm()}</div>
-          
+
+          <Suspense fallback={<PersonalInfoFormSkeleton />}>
+            <div className="mt-8">{renderForm()}</div>
+          </Suspense>
+
           <div className="mt-8 flex justify-between">
             {currentStep !== 'personal' && (
               <button
@@ -137,7 +141,7 @@ function App() {
                 Back
               </button>
             )}
-            
+
             {currentStep === 'review' ? (
               <button
                 onClick={handleSubmit}

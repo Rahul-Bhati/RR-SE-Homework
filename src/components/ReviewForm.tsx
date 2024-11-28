@@ -10,15 +10,15 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({ data, onEdit }) => {
   const renderSection = (title: string, fields: { label: string; value: string }[], step: string) => (
     <div className="mb-8">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-semibold">{title}</h3>
+        <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
         <button
           onClick={() => onEdit(step)}
-          className="text-blue-500 hover:text-blue-700 text-sm"
+          className="text-blue-500 hover:text-blue-700 text-sm font-medium"
         >
           Edit
         </button>
       </div>
-      <dl className="grid grid-cols-2 gap-4">
+      <dl className="grid grid-cols-2 gap-4 bg-gray-50 p-4 rounded-md shadow-sm">
         {fields.map(({ label, value }) => (
           <div key={label}>
             <dt className="text-sm font-medium text-gray-500">{label}</dt>

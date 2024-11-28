@@ -21,7 +21,7 @@ export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
             type="text"
             value={data.firstName || ''}
             onChange={(e) => onChange('firstName', e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           />
           {errors.firstName && (
             <p className="mt-1 text-sm text-red-600">{errors.firstName}</p>
@@ -33,7 +33,7 @@ export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
             type="text"
             value={data.lastName || ''}
             onChange={(e) => onChange('lastName', e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           />
           {errors.lastName && (
             <p className="mt-1 text-sm text-red-600">{errors.lastName}</p>
@@ -47,7 +47,7 @@ export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
           type="date"
           value={data.dateOfBirth || ''}
           onChange={(e) => onChange('dateOfBirth', e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
         />
         {errors.dateOfBirth && (
           <p className="mt-1 text-sm text-red-600">{errors.dateOfBirth}</p>
@@ -60,7 +60,7 @@ export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
           type="email"
           value={data.email || ''}
           onChange={(e) => onChange('email', e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
         />
         {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
       </div>
@@ -71,9 +71,38 @@ export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
           type="tel"
           value={data.phone || ''}
           onChange={(e) => onChange('phone', e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
         />
         {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone}</p>}
+      </div>
+    </div>
+  );
+};
+
+export const PersonalInfoFormSkeleton: React.FC = () => {
+  return (
+    <div className="space-y-6 animate-pulse">
+      <div className="grid grid-cols-2 gap-6">
+        <div>
+          <div className="h-6 bg-gray-200 rounded w-24 mb-2"></div>
+          <div className="h-10 bg-gray-200 rounded"></div>
+        </div>
+        <div>
+          <div className="h-6 bg-gray-200 rounded w-24 mb-2"></div>
+          <div className="h-10 bg-gray-200 rounded"></div>
+        </div>
+      </div>
+      <div>
+        <div className="h-6 bg-gray-200 rounded w-32 mb-2"></div>
+        <div className="h-10 bg-gray-200 rounded"></div>
+      </div>
+      <div>
+        <div className="h-6 bg-gray-200 rounded w-32 mb-2"></div>
+        <div className="h-10 bg-gray-200 rounded"></div>
+      </div>
+      <div>
+        <div className="h-6 bg-gray-200 rounded w-32 mb-2"></div>
+        <div className="h-10 bg-gray-200 rounded"></div>
       </div>
     </div>
   );
